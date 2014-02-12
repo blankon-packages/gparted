@@ -1,3 +1,17 @@
+gparted (0.17.0-5blankon1) suroboyo; urgency=low
+
+  * New Upstream Updates 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Wed, 12 Feb 2014 22:15:19 +0700
+
+gparted (0.17.0-5) unstable; urgency=medium
+
+  * 0001-Remove-incorrect-rounding-in-file-system-resize-7235.patch:
+    apply upstream patch to avoid corrupting some filesystems on
+    resize (Closes: #737247)
+
+ -- Phillip Susi <psusi@ubuntu.com>  Thu, 06 Feb 2014 12:42:07 -0500
+
 gparted (0.17.0-4blankon1) suroboyo; urgency=low
 
   * Add 03_blankon_no_password.patch #1338 

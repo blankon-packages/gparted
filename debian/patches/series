@@ -1,3 +1,4 @@
 01_fix-desktop.patch
 02_use-pkexec.patch
+0001-Remove-incorrect-rounding-in-file-system-resize-7235.patch
 03_blankon_no_password.patch
