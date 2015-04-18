@@ -1,3 +1,49 @@
+gparted (0.19.0-2.1blankon1) tambora; urgency=low
+
+  * Merge Whit SId 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 19 Apr 2015 05:13:48 +0700
+
+gparted (0.19.0-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Apply upstream fix to prevent automounting during partitioning on systems
+    using udisks2 (closes: #781716).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 12 Apr 2015 18:31:55 +0000
+
+gparted (0.19.0-2) unstable; urgency=medium
+
+  * 03_fix-crash.patch: cherry pick of upstream commit that fixes
+    a crash caused by a cross thread write after free.
+
+ -- Phillip Susi <psusi@ubuntu.com>  Sun, 09 Nov 2014 16:44:03 -0500
+
+gparted (0.19.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #574001)
+  * Add mtools to Suggests: (Closes: #742312)
+
+ -- Phillip Susi <psusi@ubuntu.com>  Wed, 11 Jun 2014 10:50:11 -0400
+
+gparted (0.18.0-1) unstable; urgency=low
+
+  * New upstream release
+    Closes: #684951
+
+    Key changes:
+    Fix partition size less than ext2/3/4, ntfs, reiserfs file system
+    Prevent crash when creating new partition on disk with loop label
+    Fix partition size less than ext2/3/4, ntfs, reiserfs file system (#723543)
+    Fix default partition table can not handle > 2 TiB disks (#711098)
+    Prevent crash when creating new partition on disk with loop label (#721988)
+    Replace obsolete FSF postal address in copyright notices (#721565)
+    Make file system support dialog viewable on 800x600 screens (#342682)
+
+  * Drop 0001-Remove-incorrect-rounding-in-file-system-resize-7235.patch
+
+ -- Phillip Susi <psusi@ubuntu.com>  Tue, 25 Feb 2014 14:38:33 -0500
+
 gparted (0.17.0-5blankon1) suroboyo; urgency=low
 
   * New Upstream Updates 

@@ -14,7 +14,7 @@ Package: gparted
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: xfsprogs, reiserfsprogs, reiser4progs, jfsutils, ntfs-3g,
- dosfstools, yelp, kpartx, dmraid, dmsetup, gpart
+ dosfstools, mtools, yelp, kpartx, dmraid, dmsetup, gpart
 Description: GNOME partition editor
  GParted uses libparted to detect and manipulate devices and partition
  tables while several (optional) filesystem tools provide support for
