@@ -1,4 +1,5 @@
 01_fix-desktop.patch
 02_use-pkexec.patch
-03_blankon_no_password.patch
 03_fix-crash.patch
+04_inhibit-udisks2.patch
+03_blankon_no_password.patch

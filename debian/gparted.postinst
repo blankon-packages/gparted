@@ -9,4 +9,7 @@ if [ "$1" = "configure" ] && dpkg --compare-versions "$2" ge "0.3.9-1" && dpkg -
     scrollkeeper-rebuilddb -q
 fi
 
+if [ ! -d /var/lib/polkit-1/localauthority/90-mandatory.d  ]; then
+    mkdir /var/lib/polkit-1/localauthority/90-mandatory.d
+fi
 #DEBHELPER#
