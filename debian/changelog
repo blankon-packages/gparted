@@ -1,3 +1,9 @@
+gparted (0.19.0-3+b2blankon2) tambora; urgency=medium
+
+  * add libsigc++-1.2-dev in build depends
+
+ -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 10:56:38 +0700
+
 gparted (0.19.0-3+b2blankon1) tambora; urgency=medium
 
   * Rebuild maneh
