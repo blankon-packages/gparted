@@ -1,8 +1,8 @@
-gparted (0.19.0-3+b2blankon1) UNRELEASED; urgency=medium
+gparted (0.19.0-3+b2blankon1) tambora; urgency=medium
 
   * Rebuild maneh
 
- -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 08:46:30 +0700
+ -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 08:52:20 +0700
 
 gparted (0.19.0-3+b1blankon3) tambora; urgency=medium
 
