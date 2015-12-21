@@ -1,57 +1,15 @@
-gparted (0.19.0-3+b2blankon2) tambora; urgency=medium
+gparted (0.24.0-1blankon1) tambora; urgency=medium
 
-  * add libsigc++-1.2-dev in build depends
+  * Rebuild for BlankOn Tambora
 
- -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 10:56:38 +0700
+ -- mhy <dotovr@mhy>  Mon, 21 Dec 2015 17:18:38 +0700
 
-gparted (0.19.0-3+b2blankon1) tambora; urgency=medium
+gparted (0.24.0-1) unstable; urgency=medium
 
-  * Rebuild maneh
+  * New upstream release
+  * 03_fix-crash.patch: removed due to inclusion in new upstream.
 
- -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 08:52:20 +0700
-
-gparted (0.19.0-3+b1blankon3) tambora; urgency=medium
-
-  * Rebuild
-
- -- Ahmad Haris <haris@yoga>  Thu, 29 Oct 2015 07:20:26 +0700
-
-gparted (0.19.0-3+b1blankon2) tambora; urgency=medium
-
-  * Rebuild 
-
- -- Mahyuddin <yudi.al@gmail.com>  Thu, 03 Sep 2015 10:20:14 +0700
-
-gparted (0.19.0-3+b1blankon1) tambora; urgency=medium
-
-  * Rebuild 
-
- -- Mahyuddin <yudi.al@gmail.com>  Wed, 12 Aug 2015 19:44:46 +0700
-
-gparted (0.19.0-3blankon1) tambora; urgency=medium
-
-  * Add patch blankon-no-password
-  * Add scripts in gparted.postin fixed  #1504:
-    - Make dir 90-mandatory.d
-
- -- Mahyuddin <yudi.al@gmail.com>  Sat, 30 May 2015 12:49:50 +0700
-
-gparted (0.19.0-3) unstable; urgency=high
-
-  * Standards Version is 3.9.6
-  * Add "Breaks: udisks2 (<< 2.1.5)" (Closes: #783374)
-  * Don't use bzip2 to compress data tarball
-  * Remove debian/source/options
-
- -- Anibal Monsalve Salazar <anibal@debian.org>  Tue, 26 May 2015 10:38:34 +0100
-
-gparted (0.19.0-2.1) unstable; urgency=medium
-
-  * Non-maintainer upload.
-  * Apply upstream fix to prevent automounting during partitioning on systems
-    using udisks2 (closes: #781716).
-
- -- Michael Gilbert <mgilbert@debian.org>  Sun, 12 Apr 2015 18:31:55 +0000
+ -- Phillip Susi <psusi@ubuntu.com>  Sun, 22 Nov 2015 18:59:17 -0500
 
 gparted (0.19.0-2) unstable; urgency=medium
 
