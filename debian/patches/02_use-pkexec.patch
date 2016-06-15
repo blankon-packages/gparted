@@ -4,10 +4,10 @@ Description: We are trying to get rid of gksu use in Ubuntu by replacing
  it with pkexec so things like two-factor authentication work. The patch
  adds the policykit policy files required for pkexec.
 
-Index: gparted-0.24.0/data/Makefile.am
+Index: b/data/Makefile.am
 ===================================================================
---- gparted-0.24.0.orig/data/Makefile.am
-+++ gparted-0.24.0/data/Makefile.am
+--- a/data/Makefile.am
++++ b/data/Makefile.am
 @@ -1 +1,10 @@
  SUBDIRS = icons
 +
@@ -19,32 +19,31 @@ Index: gparted-0.24.0/data/Makefile.am
 +@INTLTOOL_POLICY_RULE@
 +
 +EXTRA_DIST = $(dist_polkit_policy_in_files)
-Index: gparted-0.24.0/data/Makefile.in
+Index: b/data/Makefile.in
 ===================================================================
---- gparted-0.24.0.orig/data/Makefile.in
-+++ gparted-0.24.0/data/Makefile.in
-@@ -14,6 +14,7 @@
+--- a/data/Makefile.in
++++ b/data/Makefile.in
+@@ -13,6 +13,7 @@
  # PARTICULAR PURPOSE.
  
  @SET_MAKE@
 +
  VPATH = @srcdir@
- pkgdatadir = $(datadir)/@PACKAGE@
- pkgincludedir = $(includedir)/@PACKAGE@
-@@ -34,7 +35,8 @@ POST_UNINSTALL = :
+ am__is_gnu_make = test -n '$(MAKEFILE_LIST)' && test -n '$(MAKELEVEL)'
+ am__make_running_with_option = \
+@@ -78,7 +79,7 @@ POST_UNINSTALL = :
  build_triplet = @build@
  host_triplet = @host@
  subdir = data
--DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
-+DIST_COMMON = $(dist_polkit_policy_DATA) $(srcdir)/Makefile.am \
-+	$(srcdir)/Makefile.in
+-DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am
++DIST_COMMON = $(srcdir/dist_polkit_policy_DATA) $(srcdir)/Makefile.in $(srcdir)/Makefile.am
  ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
  am__aclocal_m4_deps = $(top_srcdir)/m4/ax_cxx_compile_stdcxx_11.m4 \
  	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/libtool.m4 \
-@@ -56,6 +58,29 @@ RECURSIVE_TARGETS = all-recursive check-
- 	install-pdf-recursive install-ps-recursive install-recursive \
- 	installcheck-recursive installdirs-recursive pdf-recursive \
- 	ps-recursive uninstall-recursive
+@@ -113,6 +114,29 @@ RECURSIVE_TARGETS = all-recursive check-
+ 	install-ps-recursive install-recursive installcheck-recursive \
+ 	installdirs-recursive pdf-recursive ps-recursive \
+ 	tags-recursive uninstall-recursive
 +am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 +am__vpath_adj = case $$p in \
 +    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -68,10 +67,10 @@ Index: gparted-0.24.0/data/Makefile.in
 +  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 +am__installdirs = "$(DESTDIR)$(polkit_policydir)"
 +DATA = $(dist_polkit_policy_DATA)
- RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
-   distclean-recursive maintainer-clean-recursive
- AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
-@@ -253,6 +278,10 @@ top_build_prefix = @top_build_prefix@
+ am__can_run_installinfo = \
+   case $$AM_UPDATE_INFO_DIR in \
+     n|no|NO) false;; \
+@@ -335,6 +359,10 @@ top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  SUBDIRS = icons
@@ -82,7 +81,7 @@ Index: gparted-0.24.0/data/Makefile.in
  all: all-recursive
  
  .SUFFIXES:
-@@ -292,6 +321,26 @@ mostlyclean-libtool:
+@@ -374,6 +402,26 @@ mostlyclean-libtool:
  
  clean-libtool:
  	-rm -rf .libs _libs
@@ -108,8 +107,8 @@ Index: gparted-0.24.0/data/Makefile.in
 +	cd "$(DESTDIR)$(polkit_policydir)" && rm -f $$files
  
  # This directory's subdirectories are mostly independent; you can cd
- # into them and run `make' without going through this Makefile.
-@@ -488,9 +537,12 @@ distdir: $(DISTFILES)
+ # into them and run 'make' without going through this Makefile.
+@@ -531,9 +579,12 @@ distdir: $(DISTFILES)
  	done
  check-am: all-am
  check: check-recursive
@@ -123,7 +122,7 @@ Index: gparted-0.24.0/data/Makefile.in
  install: install-recursive
  install-exec: install-exec-recursive
  install-data: install-data-recursive
-@@ -541,7 +593,7 @@ info: info-recursive
+@@ -584,7 +635,7 @@ info: info-recursive
  
  info-am:
  
@@ -132,46 +131,38 @@ Index: gparted-0.24.0/data/Makefile.in
  
  install-dvi: install-dvi-recursive
  
-@@ -585,7 +637,7 @@ ps: ps-recursive
+@@ -628,7 +679,7 @@ ps: ps-recursive
  
  ps-am:
  
 -uninstall-am:
 +uninstall-am: uninstall-dist_polkit_policyDATA
  
- .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) ctags-recursive \
- 	install-am install-strip tags-recursive
-@@ -595,15 +647,18 @@ uninstall-am:
- 	ctags ctags-recursive distclean distclean-generic \
- 	distclean-libtool distclean-tags distdir dvi dvi-am html \
- 	html-am info info-am install install-am install-data \
--	install-data-am install-dvi install-dvi-am install-exec \
--	install-exec-am install-html install-html-am install-info \
--	install-info-am install-man install-pdf install-pdf-am \
--	install-ps install-ps-am install-strip installcheck \
--	installcheck-am installdirs installdirs-am maintainer-clean \
--	maintainer-clean-generic mostlyclean mostlyclean-generic \
--	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-recursive \
--	uninstall uninstall-am
-+	install-data-am install-dist_polkit_policyDATA install-dvi \
-+	install-dvi-am install-exec install-exec-am install-html \
-+	install-html-am install-info install-info-am install-man \
-+	install-pdf install-pdf-am install-ps install-ps-am \
-+	install-strip installcheck installcheck-am installdirs \
-+	installdirs-am maintainer-clean maintainer-clean-generic \
-+	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
-+	ps ps-am tags tags-recursive uninstall uninstall-am \
-+	uninstall-dist_polkit_policyDATA
-+
+ .MAKE: $(am__recursive_targets) install-am install-strip
+ 
+@@ -636,15 +687,16 @@ uninstall-am:
+ 	check-am clean clean-generic clean-libtool cscopelist-am ctags \
+ 	ctags-am distclean distclean-generic distclean-libtool \
+ 	distclean-tags distdir dvi dvi-am html html-am info info-am \
+-	install install-am install-data install-data-am install-dvi \
++	install install-am install-data install-data-am install-dist_polkit_policyDATA install-dvi \
+ 	install-dvi-am install-exec install-exec-am install-html \
+ 	install-html-am install-info install-info-am install-man \
+ 	install-pdf install-pdf-am install-ps install-ps-am \
+ 	install-strip installcheck installcheck-am installdirs \
+ 	installdirs-am maintainer-clean maintainer-clean-generic \
+ 	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
+-	ps ps-am tags tags-am uninstall uninstall-am
++	ps ps-am tags tags-am uninstall uninstall-am uninstall-dist_polkit_policyDATA
  
 +@INTLTOOL_POLICY_RULE@
  
  # Tell versions [3.59,3.63) of GNU make to not export all variables.
  # Otherwise a system limit (for SysV at least) may be exceeded.
-Index: gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy
+Index: b/data/com.ubuntu.pkexec.gparted.policy
 ===================================================================
 --- /dev/null
-+++ gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy
++++ b/data/com.ubuntu.pkexec.gparted.policy
 @@ -0,0 +1,19 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<!DOCTYPE policyconfig PUBLIC
@@ -192,10 +183,10 @@ Index: gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy
 +  </action>
 +
 +</policyconfig>
-Index: gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy.in
+Index: b/data/com.ubuntu.pkexec.gparted.policy.in
 ===================================================================
 --- /dev/null
-+++ gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy.in
++++ b/data/com.ubuntu.pkexec.gparted.policy.in
 @@ -0,0 +1,19 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<!DOCTYPE policyconfig PUBLIC
@@ -216,10 +207,10 @@ Index: gparted-0.24.0/data/com.ubuntu.pkexec.gparted.policy.in
 +  </action>
 +
 +</policyconfig>
-Index: gparted-0.24.0/po/POTFILES.in
+Index: b/po/POTFILES.in
 ===================================================================
---- gparted-0.24.0.orig/po/POTFILES.in
-+++ gparted-0.24.0/po/POTFILES.in
+--- a/po/POTFILES.in
++++ b/po/POTFILES.in
 @@ -1,5 +1,6 @@
  # List of source files containing translatable strings.
  # Please keep this file sorted alphabetically.

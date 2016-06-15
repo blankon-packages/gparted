@@ -1,3 +1,17 @@
+gparted (0.25.0-1blankon1) tambora; urgency=medium
+
+  * Rebuild
+
+ -- Syai Mif <syaimif@di.blankon.in>  Wed, 15 Jun 2016 09:36:50 +0700
+
+gparted (0.25.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Integrate changes from 0.19.0-2.1 and 0.19.0-3
+  * 04_inhibit-udisks2.patch: removed due to inclusion in new upstream
+
+ -- Phillip Susi <psusi@ubuntu.com>  Mon, 01 Feb 2016 19:46:22 -0500
+
 gparted (0.24.0-1blankon1) tambora; urgency=medium
 
   * Rebuild for BlankOn Tambora

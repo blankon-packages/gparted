@@ -1,7 +1,7 @@
-Index: gparted-0.24.0/gparted.desktop.in.in
+Index: b/gparted.desktop.in.in
 ===================================================================
---- gparted-0.24.0.orig/gparted.desktop.in.in
-+++ gparted-0.24.0/gparted.desktop.in.in
+--- a/gparted.desktop.in.in
++++ b/gparted.desktop.in.in
 @@ -3,10 +3,10 @@ _Name=GParted
  _GenericName=Partition Editor
  _X-GNOME-FullName=GParted Partition Editor
@@ -12,6 +12,6 @@ Index: gparted-0.24.0/gparted.desktop.in.in
  Terminal=false
  Type=Application
 -Categories=GNOME;System;Filesystem;
-+Categories=GNOME;System;Filesystem;Settings;
++Categories=GNOME;System;Filesystem;Settings
  _Keywords=Partition;
  StartupNotify=true
